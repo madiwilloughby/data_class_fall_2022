@@ -275,13 +275,48 @@ summary(Reporters$Salary)
 Questions:
 
     1: Who is making $230,504 as a reporter???   
+
+```{r}
+Reporters %>% 
+  select(TITLE, COMPANY, Salary) %>% 
+  filter(Salary==230504)
+```
+   
     #A senior reporter at ProPublica is making $230,504.
-    2: Make a table for editors, figure out medians.   
+
+    2: Make a table for editors, figure out medians.  
+
+```{r}
+Editors <- subset(MediaBucks, grepl("?Editor", TITLE))
+View(Editors)
+summary(Editors$Salary)
+```    
+
     #The median for editors is 60,240.
-    3: Find highest paid editor. Resent them.   
-    #The highest paid editor is an editorial director at CondeNast with a salary of $245,000.
+
+    3: Find highest paid editor. Resent them. 
+    
+```{r}
+
+Editors %>% 
+  select(TITLE, COMPANY, Salary) %>% 
+  filter(Salary==770000)
+```
+    
+    #The highest paid editor is a senior photo editor at Tribune Publishing with a salary of $770,000.
+   
     4: Make a table for any position involving data  
-    #There are only two positions involving data on the spreadsheet.
+
+```{r}
+Data <- subset(MediaBucks, grepl("?data", TITLE))
+View(Data)
+summary(Data$Salary)
+```
+
+```{r}
+data <- subset(MediaBucks, grepl("?data", JOB_DUTIES))
+View(data)
+```
 
 Table with Black reporters at Wall Street Journal
 
@@ -359,12 +394,23 @@ This is a basic chart using ggplot. To break down the code:
 
     1: Build a table for NewYorkTimes employees, and determine median salary of NewYorkTimes employees   
 ```{r}
+
+NewYorkTimes <- subset(MediaBucks, grepl("?NewYorkTimes", COMPANY))
+summary(NewYorkTimes$Salary)
+View(NewYorkTimes)
+
 #The median salary of NewYorkTimes employees is $52,000.
+
 ```
 
 
       2: Identify title, gender and race of the highest paid position at NYT  
 ```{r}
+
+NewYorkTimes %>% 
+  select(TITLE, COMPANY, Salary) %>% 
+  filter(Salary==350000)
+
 #The highest paid position at NYT is an executive editor for news. The editor makes $350,000 and is Black and did not input a gender.
 ```
 
@@ -372,6 +418,15 @@ This is a basic chart using ggplot. To break down the code:
     3: Search for Bloomberg,  check median salary, compare to NYT results above.
 
 ```{r}
+
+Bloomberg <- subset(MediaBucks, grepl("?Bloomberg", COMPANY))
+summary(Bloomberg$Salary)
+View(Bloomberg)
+
+Bloomberg %>% 
+  select(TITLE, COMPANY, Salary) %>% 
+  filter(Salary==210000)
+
 #The median salary for Bloomberg is $50,000, and the highest paid position is a senior editor for BloombergNews. The editor makes $210,000 and is white and male.
 
 ```
