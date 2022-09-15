@@ -20,7 +20,7 @@ help.start()
 
 You should have installed tidyverse already. If not, then delete the hashtag in front of install.packages("tidyverse") and run the code chunk at line 22.
 ```{r}
-#install.packages("tidyverse")
+install.packages("tidyverse")
 install.packages("rio") 
 install.packages("janitor")
 ```
@@ -224,9 +224,13 @@ MediaBucks %>%
 
 Questions:
 
-    1: View the range of your data    
+    1: View the range of your data 
+    #The range of the data is 478,800.
     2: Number of rows  
+    #The number of row is 10.
     3: Number of rows cut with filter  
+    #There are 1658 rows total in the spreadsheet, so 1648 of them have been cut for this summary.
+    
 
 <br>
 
@@ -236,6 +240,7 @@ Filter
 
 ```{r}
 WSJ <- subset(MediaBucks, COMPANY=="WallStreetJournal")  
+
 ```
 
 ```{r}
@@ -270,9 +275,13 @@ summary(Reporters$Salary)
 Questions:
 
     1: Who is making $230,504 as a reporter???   
+    #A senior reporter at ProPublica is making $230,504.
     2: Make a table for editors, figure out medians.   
+    #The median for editors is 60,240.
     3: Find highest paid editor. Resent them.   
+    #The highest paid editor is an editorial director at CondeNast with a salary of $245,000.
     4: Make a table for any position involving data  
+    #There are only two positions involving data on the spreadsheet.
 
 Table with Black reporters at Wall Street Journal
 
@@ -350,20 +359,20 @@ This is a basic chart using ggplot. To break down the code:
 
     1: Build a table for NewYorkTimes employees, and determine median salary of NewYorkTimes employees   
 ```{r}
-#your answer here
+#The median salary of NewYorkTimes employees is $52,000.
 ```
 
 
       2: Identify title, gender and race of the highest paid position at NYT  
 ```{r}
-#your answer here
+#The highest paid position at NYT is an executive editor for news. The editor makes $350,000 and is Black and did not input a gender.
 ```
 
 
     3: Search for Bloomberg,  check median salary, compare to NYT results above.
 
 ```{r}
-#your answer here
+#The median salary for Bloomberg is $50,000, and the highest paid position is a senior editor for BloombergNews. The editor makes $210,000 and is white and male.
 
 ```
 
